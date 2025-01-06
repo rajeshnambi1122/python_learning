@@ -1,5 +1,7 @@
 # My Python Learning Journey
 
+![Python Logo](https://www.python.org/static/community_logos/python-logo-master-v3-TM.png)
+
 This repository is a personal space where I record my Python learning experiences. It's not intended as a teaching resource but as a way for me to look back on how far I've come after years of learning and practicing Python.
 
 ## Purpose
@@ -17,7 +19,7 @@ This repository contains:
 
 ## Disclaimer
 
-This repository is for personal use and reflection. The code and notes may not always follow best practices, as they reflect my learning process at various stages. 
+This repository is for personal use and reflection. The code and notes may not always follow best practices, as they reflect my learning process at various stages.
 
 ## Acknowledgments
 
