@@ -4,24 +4,26 @@ class PDF(FPDF):
     def header(self):
         # Insert SRMIST logo at x=10, y=8, width=25
         self.image('SRMIST.png', 10, 8, 25)
-        # Move down to avoid overlapping the logo
-        self.ln(30)
+        
+        # Adjust position for the header text below the logo
+        self.set_xy(40, 20)  # Moves to x=40, y=20 (adjust as needed)
+        self.set_font('Arial', 'B', 14)
+        self.cell(0, 10, "Operating System Week 2 Internal Practical Assessment", 0, 1, 'C')
+        
+        # Add vertical space and draw a horizontal line below the header
+        self.ln(5)
+        self.set_line_width(0.5)
+        current_y = self.get_y()  # Current vertical position
+        self.line(10, current_y, 200, current_y)
+        self.ln(5)
 
     def footer(self):
         # Position at 1.5 cm from bottom
         self.set_y(-15)
         self.set_font('Arial', 'I', 8)
-        # Page number
         self.cell(0, 10, f"Page {self.page_no()}", 0, 0, 'C')
-    
-    def testdetails(self):
-        # Title for the test details
-        self.set_font('Arial', 'B', 14)
-        self.cell(0, 10, "Operating System Week 2 Internal Practical Assessment", ln=True, align='C')
-        # Extra line space
-        self.ln(5)
 
-# Revised content
+# Revised content with updated signature
 content = """
 Linux Boot Process Overview
 
@@ -65,6 +67,8 @@ After all runlevel scripts have executed, the system presents a login prompt. Us
 - Have their session initialized by system-wide (e.g., /etc/profile) and personal login scripts (e.g., .profile)
 
 Rajesh Nambi
+B.A | MCA
+rn6525@srmist.edu.in
 """
 
 # Replace problematic Unicode characters if any
@@ -73,13 +77,10 @@ content = content.replace("\u2019", "'")
 pdf = PDF()
 pdf.add_page()
 
-# Insert test details heading
-pdf.testdetails()
-
 pdf.set_font("Arial", size=12)
 for line in content.split('\n'):
     pdf.multi_cell(0, 10, line)
 
-pdf_file = "Linux_Boot_Process_Rajesh_Nambi.pdf"
+pdf_file = "Week2-OS-IPA.pdf"
 pdf.output(pdf_file)
 print(f"PDF generated and saved as {pdf_file}")
