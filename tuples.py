@@ -10,4 +10,19 @@ print(thistuple)
 
 # Tuples are written with round brackets.
 mytupel = tuple(("apple", "nambi", "cherry"))
+x = 1
+y = 1
+print(isinstance(thistuple, tuple))
+
+
+if x < y:
+    print("1 is greater than 2")
+elif x == y:
+    print("1 is equal to 2")
+else:
+    print("1 is less than 2")
+
+
+
+
 
